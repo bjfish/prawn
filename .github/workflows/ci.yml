@@ -3,11 +3,12 @@ name: CI
 on:
   push:
   pull_request:
-  schedule:
-    - cron: "6 20 * * 6"
+  # schedule:
+  #   - cron: "6 20 * * 6"
 
 jobs:
   code-style:
+    if: false
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -36,16 +37,17 @@ jobs:
       fail-fast: false
       matrix:
         ruby:
-          - "2.6.0"
-          - "2.6"
-          - "2.7.0"
-          - "2.7"
-          - "3.0.0"
+          # - "2.6.0"
+          # - "2.6"
+          # - "2.7.0"
+          # - "2.7"
+          # - "3.0.0"
           - "3.0"
-          - "3.1.0"
-          - "3.1"
-          - ruby-head
-          - jruby-9.3
+          - truffleruby-head
+          # - "3.1.0"
+          # - "3.1"
+          # - ruby-head
+          # - jruby-9.3
     steps:
       - uses: actions/checkout@v1
       - name: Set up Ruby
